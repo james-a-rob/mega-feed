@@ -1,0 +1,24 @@
+{
+  "name": "message-stream-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r dotenv/config"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^9.0.3",
+    "nock": "^13.1.1",
+    "sinon": "^11.1.2"
+  },
+  "dependencies": {
+    "chai": "^4.3.4",
+    "chalk": "^4.1.2",
+    "date-and-time": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "twitter-api-client": "^1.3.8"
+  }
+}
