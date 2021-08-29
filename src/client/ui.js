@@ -9,7 +9,11 @@ const renderMessages = (messages) => {
   });
 };
 
-const filterMessages = () => {};
+const filterMessages = (filter, messages) => {
+  return messages.filter((message) => {
+    return message.content.includes(filter) || message.service.includes(filter);
+  });
+};
 
 module.exports = {
   renderMessages,

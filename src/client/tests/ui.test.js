@@ -1,4 +1,4 @@
-const { renderMessages } = require("../ui");
+const { renderMessages, filterMessages } = require("../ui");
 
 describe("ui", () => {
   it("render all messages", () => {
@@ -20,5 +20,51 @@ describe("ui", () => {
     expect(updatedFeedContainer.innerHTML.includes("new commit")).toBe(true);
   });
 
-  it("filters  messages", () => {});
+  it("filters  messages by content", () => {
+    const messages = [
+      {
+        service: "github",
+        time: "12:00pm",
+        content: "new commit",
+      },
+      {
+        service: "slack",
+        time: "13:00pm",
+        content: "new message",
+      },
+    ];
+    expect(filterMessages("message", messages)[0].service).toEqual("slack");
+  });
+
+  it("filters messages by content", () => {
+    const messages = [
+      {
+        service: "github",
+        time: "12:00pm",
+        content: "new commit",
+      },
+      {
+        service: "slack",
+        time: "13:00pm",
+        content: "new message",
+      },
+    ];
+    expect(filterMessages("slack", messages)[0].service).toEqual("slack");
+  });
+
+  it("handles a fitler that does not match any messages", () => {
+    const messages = [
+      {
+        service: "github",
+        time: "12:00pm",
+        content: "new commit",
+      },
+      {
+        service: "slack",
+        time: "13:00pm",
+        content: "new message",
+      },
+    ];
+    expect(filterMessages("not in any message", messages).length).toBe(0);
+  });
 });

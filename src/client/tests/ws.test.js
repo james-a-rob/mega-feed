@@ -1,5 +1,5 @@
-describe("ui", () => {
-  it("render new message to screen", () => {});
+describe("client ws", () => {
+  it("connects to server", () => {});
 
-  it("filters  messages", () => {});
+  it("listens for messages from server", () => {});
 });
