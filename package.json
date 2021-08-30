@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build:client": "npx webpack --config webpack.config.js",
     "start:server": "node src/api/app.js",
     "test": "jest"
   },
@@ -16,7 +17,9 @@
   "devDependencies": {
     "jest": "^27.1.0",
     "nock": "^13.1.1",
-    "supertest": "^6.1.6"
+    "supertest": "^6.1.6",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
