@@ -11,7 +11,6 @@ jest.mock("../../services", () => ({
 
 beforeAll(() => {
   jest.useFakeTimers();
-  console.log("set system");
   jest.setSystemTime(new Date(2020, 3, 1));
 });
 

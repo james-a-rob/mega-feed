@@ -21,7 +21,7 @@ const setup = (port = 8080) => {
 const send = (user, message) => {
   const openConnection = openConnections[user];
   if (openConnection) {
-    openConnection.ws.send(message);
+    openConnection.ws.send(JSON.stringify(message));
   }
 };
 

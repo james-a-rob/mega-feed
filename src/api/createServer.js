@@ -8,7 +8,6 @@ const createServer = () => {
   app.use(express.json());
 
   app.post("/hook/:username/:service", async (req, res) => {
-    console.log("inside hook");
     const service = req.params.service;
     const time = new Date().toUTCString();
     const content = services[req.params.service].parser(req.body);

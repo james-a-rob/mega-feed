@@ -9,12 +9,12 @@ describe("ws", () => {
     });
     ws.on("open", () => {
       ws.on("message", (message) => {
-        expect(message.toString()).toEqual("test message");
+        expect(JSON.parse(message.toString()).service).toEqual("github");
         ws.close();
         cleanup();
         done();
       });
-      send("jon", "test message");
+      send("jon", { service: "github" });
     });
   });
 
@@ -38,21 +38,21 @@ describe("ws", () => {
 
     ws1.on("open", () => {
       ws1.on("message", (message) => {
-        expect(message.toString()).toEqual("bens test message");
+        expect(JSON.parse(message.toString()).service).toEqual("github");
         ws1.close();
         messageCount++;
         maybeDone();
       });
-      send("ben", "bens test message");
+      send("ben", { service: "github" });
     });
     ws2.on("open", () => {
       ws2.on("message", (message) => {
-        expect(message.toString()).toEqual("bills test message");
+        expect(JSON.parse(message.toString()).service).toEqual("slack");
         ws2.close();
         messageCount++;
         maybeDone();
       });
-      send("bill", "bills test message");
+      send("bill", { service: "slack" });
     });
   });
 });
