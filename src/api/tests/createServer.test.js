@@ -8,25 +8,34 @@ jest.mock("../../services", () => ({
     parser: () => "jons test message",
   },
 }));
+
+beforeAll(() => {
+  jest.useFakeTimers();
+  console.log("set system");
+  jest.setSystemTime(new Date(2020, 3, 1));
+});
+
+afterAll(() => {
+  jest.useRealTimers();
+});
+
 describe("api", () => {
   it("correctly handles incoming webhooks", (done) => {
-    jest
-      .useFakeTimers("modern")
-      .setSystemTime(new Date("2020-01-01").getTime());
     const app = createServer();
 
     request(app)
       .post("/hook/jon/github?key=1234")
-      .send({ foo: "bar" })
+      .send(JSON.stringify({ foo: "bar" }))
       .expect("Content-Type", /json/)
-      .expect("Content-Length", "20")
+      .expect("Content-Length", "21")
       .expect(200)
       .end(function (err, res) {
         if (err) throw err;
-        expect(send).toHaveBeenCalledWith(
-          "jon",
-          "Github | Wed, 01 Jan 2020 00:00:00 GMT | jons test message"
-        );
+        expect(send).toHaveBeenCalledWith("jon", {
+          service: "github",
+          time: "Tue, 31 Mar 2020 23:00:00 GMT",
+          content: "jons test message",
+        });
         done();
       });
   });

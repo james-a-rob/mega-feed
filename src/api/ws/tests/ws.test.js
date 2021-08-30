@@ -10,7 +10,7 @@ describe("ws", () => {
     ws.on("open", () => {
       ws.on("message", (message) => {
         expect(message.toString()).toEqual("test message");
-        ws.terminate();
+        ws.close();
         cleanup();
         done();
       });
@@ -21,18 +21,21 @@ describe("ws", () => {
   it("pushes messages to two differnt clients", (done) => {
     setup();
     let messageCount = 0;
-    const maybeDone = () => {
-      if (messageCount === 2) {
-        cleanup();
-        done();
-      }
-    };
     const ws1 = new WebSocket("ws://localhost:8080?user=ben&key=1234", {
       perMessageDeflate: false,
     });
     const ws2 = new WebSocket("ws://localhost:8080?user=bill&key=1234", {
       perMessageDeflate: false,
     });
+    const maybeDone = () => {
+      if (messageCount === 2) {
+        cleanup();
+        ws1.close();
+        ws2.close();
+        done();
+      }
+    };
+
     ws1.on("open", () => {
       ws1.on("message", (message) => {
         expect(message.toString()).toEqual("bens test message");

@@ -6,11 +6,15 @@ const createServer = () => {
   const app = express();
   setup();
   app.use(express.json());
+
   app.post("/hook/:username/:service", async (req, res) => {
-    const parsedMessage = services[req.params.service].parser(req.body);
-    const message = `Github | ${new Date().toUTCString()} | ${parsedMessage}`;
-    send(req.params.username, message);
-    res.status(200).json({ message: "worked" });
+    console.log("inside hook");
+    const service = req.params.service;
+    const time = new Date().toUTCString();
+    const content = services[req.params.service].parser(req.body);
+
+    send(req.params.username, { service, time, content });
+    res.status(200).json({ message: "working" });
   });
 
   return app;

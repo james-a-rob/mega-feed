@@ -6,11 +6,11 @@
   "scripts": {
     "build:client": "npx webpack --config webpack.config.js",
     "start:server": "node src/api/app.js",
-    "test": "jest"
+    "test:client": "jest --config ./jest-config-client.js",
+    "test:server": "jest --config ./jest-config-server.js"
+
   },
-  "jest": {
-    "testEnvironment": "jsdom"
-  },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
