@@ -1,1 +1,1 @@
-console.log("working");
+(()=>{var e={946:e=>{e.exports={setup:(e,s)=>new WebSocket(`ws://localhost:8080?user=${e}&key=${s}`),onMessage:(e,s)=>{e.addEventListener("message",(function(e){s(JSON.parse(e.data))}))}}}},s={};function t(r){var o=s[r];if(void 0!==o)return o.exports;var n=s[r]={exports:{}};return e[r](n,n.exports,t),n.exports}(()=>{const{setup:e}=t(946);e()})()})();

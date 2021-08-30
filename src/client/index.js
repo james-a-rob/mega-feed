@@ -1,1 +1,2 @@
-console.log("working");
+const { setup } = require("./ws");
+setup();
