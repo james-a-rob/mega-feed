@@ -67,4 +67,20 @@ describe("ui", () => {
     ];
     expect(filterMessages("not in any message", messages).length).toBe(0);
   });
+
+  it("does not filter on empty string", () => {
+    const messages = [
+      {
+        service: "github",
+        time: "12:00pm",
+        content: "new commit",
+      },
+      {
+        service: "slack",
+        time: "13:00pm",
+        content: "new message",
+      },
+    ];
+    expect(filterMessages("", messages).length).toBe(2);
+  });
 });
