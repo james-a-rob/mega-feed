@@ -1,5 +1,5 @@
 const setup = (user, key) => {
-  const socket = new WebSocket(`ws://localhost:8080?user=${user}&key=${key}`);
+  const socket = new WebSocket(`ws://localhost:8822?user=${user}&key=${key}`);
   return socket;
 };
 

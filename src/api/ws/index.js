@@ -4,7 +4,7 @@ const querystring = require("querystring");
 const openConnections = {};
 let wss;
 
-const setup = (port = 8080) => {
+const setup = (port = 8822) => {
   wss = new WebSocketServer({
     port,
   });

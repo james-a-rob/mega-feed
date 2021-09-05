@@ -4,7 +4,7 @@ const { setup, send, cleanup } = require("..");
 describe("ws", () => {
   it("pushes message to client", (done) => {
     setup();
-    const ws = new WebSocket("ws://localhost:8080?user=jon&key=1234", {
+    const ws = new WebSocket("ws://localhost:8822?user=jon&key=1234", {
       perMessageDeflate: false,
     });
     ws.on("open", () => {
@@ -21,10 +21,10 @@ describe("ws", () => {
   it("pushes messages to two differnt clients", (done) => {
     setup();
     let messageCount = 0;
-    const ws1 = new WebSocket("ws://localhost:8080?user=ben&key=1234", {
+    const ws1 = new WebSocket("ws://localhost:8822?user=ben&key=1234", {
       perMessageDeflate: false,
     });
-    const ws2 = new WebSocket("ws://localhost:8080?user=bill&key=1234", {
+    const ws2 = new WebSocket("ws://localhost:8822?user=bill&key=1234", {
       perMessageDeflate: false,
     });
     const maybeDone = () => {

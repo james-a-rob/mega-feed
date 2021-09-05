@@ -1,22 +1,85 @@
-const ngrok = require("ngrok");
-(async function () {
-  const url = await ngrok.connect();
-  console.log(url);
-})();
+const Fuse = require("fuse.js");
+const options = {
+  includeScore: true,
+  useExtendedSearch: true,
+  keys: ["service", "content"],
+};
+const messages = [
+  {
+    service: "slack",
+    time: new Date().toUTCString(),
+    content: "dummy message",
+  },
+  {
+    service: "github",
+    time: new Date().toUTCString(),
+    content: "dummy message",
+  },
+  {
+    service: "slack",
+    time: new Date().toUTCString(),
+    content: "dummy message",
+  },
+  {
+    service: "slack",
+    time: new Date().toUTCString(),
+    content: "dummy2 message",
+  },
+  {
+    service: "miro",
+    time: new Date().toUTCString(),
+    content: "dummy2 message",
+  },
+  {
+    service: "figma",
+    time: new Date().toUTCString(),
+    content: "dummy message",
+  },
+  {
+    service: "twitter",
+    time: new Date().toUTCString(),
+    content: "one two three",
+  },
+  {
+    service: "slack",
+    time: new Date().toUTCString(),
+    content: "three four five",
+  },
+  {
+    service: "github",
+    time: new Date().toUTCString(),
+    content: "dummy message",
+  },
+  {
+    service: "slack",
+    time: new Date().toUTCString(),
+    content: "dummy message blah",
+  },
+  {
+    service: "slack",
+    time: new Date().toUTCString(),
+    content: "dummy2 message",
+  },
+  {
+    service: "miro",
+    time: new Date().toUTCString(),
+    content: "dummy2 message",
+  },
+  {
+    service: "figma",
+    time: new Date().toUTCString(),
+    content: "dummy message",
+  },
+  {
+    service: "twitter",
+    time: new Date().toUTCString(),
+    content: "dummy message",
+  },
+];
+const fuse = new Fuse(messages, options);
 
-const express = require("express");
-const app = express();
-app.use(express.json());
+// Search for items that include "Man" and "Old",
+// OR end with "Artist"
+const foundItems = fuse.search("!slack");
 
-const port = 80;
-
-app.post("/", (req, res) => {
-  console.log(req.body); // your JSON
-
-  console.log("got a message");
-  res.send("Hello World!");
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+console.log(foundItems);

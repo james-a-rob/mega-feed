@@ -5,7 +5,7 @@ describe("client ws", () => {
   it("connects to server", (done) => {
     let socket;
     wss = new WebSocketServer({
-      port: 8080,
+      port: 8822,
     });
 
     wss.on("connection", function connection(ws, req) {
@@ -21,7 +21,7 @@ describe("client ws", () => {
     let socket;
 
     wss = new WebSocketServer({
-      port: 8080,
+      port: 8822,
     });
 
     wss.on("connection", function connection(ws, req) {

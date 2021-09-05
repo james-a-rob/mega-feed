@@ -8,9 +8,7 @@
     "start:server": "node src/api/app.js",
     "test:client": "jest --config ./jest-config-client.js",
     "test:server": "jest --config ./jest-config-server.js"
-
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -24,6 +22,7 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "fuse.js": "^6.4.6",
     "ngrok": "^4.1.0",
     "ws": "^8.2.1"
   }

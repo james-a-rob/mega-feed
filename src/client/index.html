@@ -1,6 +1,94 @@
 <html>
-  <h4>Feed</h4>
-  <div id="feed-container"></div>
-  <input id="filter-query" type="text" />
+  <style>
+    div {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: sans-serif;
+      padding: 0px;
+      margin: 0px;
+    }
+    .feed-item-time {
+      display: inline-block;
+      width: 25%;
+      vertical-align: top;
+    }
+    .feed-item-service {
+      display: inline-block;
+      width: 15%;
+      vertical-align: top;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .feed-item-service.figma {
+      color: #d58afb;
+    }
+    .feed-item-service.miro {
+      color: #f2bb2f;
+    }
+    .feed-item-service.twitter {
+      color: #1da0f2;
+    }
+    .feed-item-service.github {
+      color: #3bcb87;
+    }
+    .feed-item-service.slack {
+      color: #d61c56;
+    }
+    .feed-item-content {
+      display: inline-block;
+      width: 58%;
+      vertical-align: top;
+      font-weight: 200;
+    }
+    .header {
+      color: white;
+      padding: 8px;
+      background: #005285;
+      position: fixed;
+      width: 100%;
+    }
+    .header--name {
+      display: inline-block;
+      margin-right: 12px;
+    }
+    .header--name--text {
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .header--filter {
+      display: inline-block;
+    }
+    .feed-item {
+      padding: 12px;
+      border-bottom: 1px solid #e4e4e4;
+      color: #1e1e1e;
+      font-size: 14px;
+    }
+    .feed-container {
+      padding-top: 66px;
+    }
+    .logo {
+      width: 48px;
+      vertical-align: middle;
+    }
+    input {
+      all: unset;
+      background: #2872a0;
+      padding: 10px;
+      width: 280px;
+      border-radius: 4px;
+    }
+  </style>
+  <div class="header">
+    <div class="header--name">
+      <img class="logo" src="message.png" />
+      <span class="header--name--text">MegaFeed</span>
+    </div>
+    <div class="header--filter">
+      <input class="" id="filter-query" type="text" />
+    </div>
+  </div>
+  <div class="feed-container" id="feed-container"></div>
   <script src="dist/main.js"></script>
 </html>

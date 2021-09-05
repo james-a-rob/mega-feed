@@ -1,4 +1,4 @@
-const { renderMessages, filterMessages } = require("../ui");
+const { renderMessages, searchMessages } = require("../ui");
 
 describe("ui", () => {
   it("render all messages", () => {
@@ -20,7 +20,7 @@ describe("ui", () => {
     expect(updatedFeedContainer.innerHTML.includes("new commit")).toBe(true);
   });
 
-  it("filters  messages by content", () => {
+  it("searches  messages by content", () => {
     const messages = [
       {
         service: "github",
@@ -33,10 +33,10 @@ describe("ui", () => {
         content: "new message",
       },
     ];
-    expect(filterMessages("message", messages)[0].service).toEqual("slack");
+    expect(searchMessages("'message", messages)[0].service).toEqual("slack");
   });
 
-  it("filters messages by content", () => {
+  it("searches messages by service", () => {
     const messages = [
       {
         service: "github",
@@ -49,7 +49,7 @@ describe("ui", () => {
         content: "new message",
       },
     ];
-    expect(filterMessages("slack", messages)[0].service).toEqual("slack");
+    expect(searchMessages("slack", messages)[0].service).toEqual("slack");
   });
 
   it("handles a fitler that does not match any messages", () => {
@@ -65,7 +65,7 @@ describe("ui", () => {
         content: "new message",
       },
     ];
-    expect(filterMessages("not in any message", messages).length).toBe(0);
+    expect(searchMessages("not in any message", messages).length).toBe(0);
   });
 
   it("does not filter on empty string", () => {
@@ -81,6 +81,6 @@ describe("ui", () => {
         content: "new message",
       },
     ];
-    expect(filterMessages("", messages).length).toBe(2);
+    expect(searchMessages("", messages).length).toBe(2);
   });
 });
