@@ -7,13 +7,24 @@ const createServer = () => {
   setup();
   app.use(express.json());
 
-  app.post("/hook/:username/:service", async (req, res) => {
+  app.post("/hook/:user/:service", async (req, res) => {
     const service = req.params.service;
     const time = new Date().toUTCString();
-    const content = services[req.params.service].parser(req.body);
 
-    send(req.params.username, { service, time, content });
-    res.status(200).json({ message: "working" });
+    const serviceUtils = services[service];
+    if (service) {
+      const payload = req.body;
+      if (!serviceUtils.authenticate(payload)) {
+        res.status(403).json();
+        return;
+      }
+      const content = serviceUtils.parser(payload);
+
+      send(req.params.user, { service, time, content });
+      res.status(200).json({ message: "working" });
+    } else {
+      res.status(400).json();
+    }
   });
 
   return app;
