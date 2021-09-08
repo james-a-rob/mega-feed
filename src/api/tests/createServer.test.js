@@ -1,8 +1,17 @@
 const request = require("supertest");
+const fs = require("fs");
+
 const createServer = require("../createServer");
 const { send } = require("../ws");
 const services = require("../../services");
+
+jest.mock("fs");
 jest.mock("../ws");
+
+beforeAll(() => {
+  fs.readFileSync.mockClear();
+});
+
 jest.mock("../../services", () => ({
   github: {
     parser: () => "jons test message",
@@ -29,6 +38,8 @@ afterAll(() => {
 
 describe("api", () => {
   it("correctly handles incoming webhooks", (done) => {
+    fs.readFileSync.mockReturnValue("1234");
+
     const app = createServer();
 
     request(app)
@@ -40,6 +51,7 @@ describe("api", () => {
       .end(function (err, res) {
         if (err) throw err;
         expect(res.statusCode).toEqual(200);
+        expect(fs.readFileSync).toHaveBeenCalled();
 
         expect(send).toHaveBeenCalledWith("jon", {
           service: "github",

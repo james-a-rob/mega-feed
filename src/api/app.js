@@ -12,7 +12,7 @@ const app = createServer();
   console.log("webhook urls");
 
   services.forEach((service) => {
-    console.log(`${url}/${userId}/${service.name}`);
+    console.log(`${url}/hook/${userId}/${service.name}`);
   });
 
   console.log("secure key");

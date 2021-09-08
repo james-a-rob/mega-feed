@@ -1,12 +1,13 @@
 const express = require("express");
 const services = require("../services");
 const { setup, send } = require("./ws");
+const { getSecureKey } = require("./utils");
 
 const createServer = () => {
   const app = express();
   setup();
   app.use(express.json());
-
+  const secretKey = getSecureKey();
   app.post("/hook/:user/:service", async (req, res) => {
     const service = req.params.service;
     const time = new Date().toUTCString();
@@ -14,7 +15,7 @@ const createServer = () => {
     const serviceUtils = services[service];
     if (service) {
       const payload = req.body;
-      if (!serviceUtils.authenticate(payload)) {
+      if (!serviceUtils.authenticate(req, secretKey)) {
         res.status(403).json();
         return;
       }
