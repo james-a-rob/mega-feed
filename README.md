@@ -1,5 +1,7 @@
 # MegaFeed
 
+![MegaFeed demo](https://gcdn.pbrd.co/images/dHvc2dMBjMXe.gif)
+
 A web app that aggregates all the most important message from across digital tools.
 
 Digital tools meaning things like Slack, Github and Figma.
@@ -34,7 +36,7 @@ TODO
 - Figma
 - CircleCI
 
-### Adding additional services
+### Adding Additional Services
 
 MegaFeed has been designed from the ground up to be easy to extend.
 If you know a bit of JavaScript and understand Webhooks then you will be able to build new service support for MegaFeed.
