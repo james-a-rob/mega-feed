@@ -1,2 +1,4 @@
 .env
 node_modules
+src/api/secure-key.txt
+src/api/user-id.txt
