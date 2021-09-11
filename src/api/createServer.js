@@ -9,9 +9,6 @@ const createServer = () => {
   app.use(express.json());
   const secretKey = getSecureKey();
   app.post("/hook/:user/:service", async (req, res) => {
-    if (req.body.event) {
-      console.log(req.body.event.blocks);
-    }
     const service = req.params.service;
     const time = new Date().toUTCString();
 

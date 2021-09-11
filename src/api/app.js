@@ -1,4 +1,4 @@
-const ngrok = require("ngrok");
+const { exec } = require("child_process");
 const services = require("../services/config");
 const createServer = require("./createServer");
 const { getUserId, getSecureKey } = require("./utils");
@@ -7,10 +7,16 @@ const app = createServer();
 
 (async function () {
   const userId = getUserId();
-  const url = await ngrok.connect({ addr: port });
   const secureKey = getSecureKey();
-  console.log("webhook urls");
+  const hostName = `megafeed-${userId}`;
+  async function setupLoopHole() {
+    const { stdout, stderr } = await exec(
+      `loophole http ${port} --hostname ${hostName}`
+    );
+  }
 
+  setupLoopHole();
+  const url = `https://${hostName}.loophole.site`;
   services.forEach((service) => {
     console.log(`${url}/hook/${userId}/${service.name}`);
   });
