@@ -25,7 +25,12 @@ const authenticate = (req, secureKey) => {
   return false;
 };
 
+const respond = (res) => {
+  res.sendStatus(200);
+};
+
 module.exports = {
   parser,
   authenticate,
+  respond,
 };

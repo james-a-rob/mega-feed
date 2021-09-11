@@ -1,4 +1,4 @@
-const { parser, authenticate } = require("..");
+const { parser, authenticate, respond } = require("..");
 const commitMock = require("./mocks/commit");
 
 describe("github parse function", () => {
@@ -23,5 +23,16 @@ describe("github authenticate", () => {
     );
 
     expect(isAuthenticated).toBe(true);
+  });
+});
+
+describe("github response", () => {
+  it("responds correctly", () => {
+    const sendMock = jest.fn();
+    const res = {
+      sendStatus: sendMock,
+    };
+    respond(res);
+    expect(sendMock).toHaveBeenCalledWith(200);
   });
 });

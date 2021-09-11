@@ -18,11 +18,17 @@ jest.mock("../../services", () => ({
     authenticate: (payload) => {
       return true;
     },
+    respond: (res, req) => {
+      res.sendStatus(200);
+    },
   },
   githubNoAuth: {
     parser: () => "jons test message",
     authenticate: (payload) => {
       return false;
+    },
+    respond: (res, req) => {
+      res.sendStatus(200);
     },
   },
 }));
@@ -45,9 +51,6 @@ describe("api", () => {
     request(app)
       .post("/hook/jon/github?key=1234")
       .send(JSON.stringify({ service: "github" }))
-      .expect("Content-Type", /json/)
-      .expect("Content-Length", "21")
-      .expect(200)
       .end(function (err, res) {
         if (err) throw err;
         expect(res.statusCode).toEqual(200);
@@ -67,8 +70,6 @@ describe("api", () => {
     request(app)
       .post("/hook/jon/githubNoAuth?key=1234")
       .send(JSON.stringify({ service: "githubNoAuth" }))
-      .expect("Content-Type", /json/)
-      .expect("Content-Length", "0")
       .expect(403)
       .end(function (err, res) {
         expect(res.statusCode).toEqual(403);

@@ -9,6 +9,9 @@ const createServer = () => {
   app.use(express.json());
   const secretKey = getSecureKey();
   app.post("/hook/:user/:service", async (req, res) => {
+    if (req.body.event) {
+      console.log(req.body.event.blocks);
+    }
     const service = req.params.service;
     const time = new Date().toUTCString();
 
@@ -22,7 +25,7 @@ const createServer = () => {
       const content = serviceUtils.parser(payload);
 
       send(req.params.user, { service, time, content });
-      res.status(200).json({ message: "working" });
+      serviceUtils.respond(res, req);
     } else {
       res.status(400).json();
     }
