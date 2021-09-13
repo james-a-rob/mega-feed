@@ -12,7 +12,11 @@ Events meaning "A designer has just updated the latest IOS app mockups".
 
 ## Installation
 
-MegaFeed requires Loophole in order for the local client to securely listen from incoming events. See instructions [here](https://loophole.cloud/download). Loophole will need adding to an executable path.
+MegaFeed requires Loophole in order for the local client to securely listen from incoming events.
+
+See instructions [here](https://loophole.cloud/download).
+
+Loophole will need adding to an executable path.
 
 To install the app just clone this repo and run `npm install`.
 
