@@ -5,7 +5,7 @@ module.exports = {
   event: {
     client_msg_id: "d439a5e3-fae4-4aba-a3e8-58fa2652b245",
     type: "message",
-    text: "test",
+    text: "some text",
     user: "U02DYEMQSAW",
     ts: "1631219081.000800",
     team: "T02EB3GQK09",

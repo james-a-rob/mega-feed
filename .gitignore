@@ -1,4 +1,6 @@
 .env
 node_modules
 src/api/secure-key.txt
-src/api/user-id.txt.DS_Store
+src/api/user-id.txt
+.DS_Store
+sketch.js

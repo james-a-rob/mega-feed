@@ -19,6 +19,7 @@ To install the app just clone this repo and run `npm install`.
 ## Running
 
 Simple run `npm run start`
+Navigate to http://localhost:3000
 
 ## Setup
 
@@ -26,6 +27,7 @@ When MegaFeed starts it will print a url for each service supported. In order to
 
 - [Github](https://docs.github.com/en/developers/webhooks-and-events/webhooks/creating-webhooks#setting-up-a-webhook)
 - [Slack](https://api.slack.com/apis/connections/events-api#the-events-api__subscribing-to-event-types)
+- [Figma](https://www.figma.com/developers/api#webhooks-v2-post-endpoint)
 
 ### Example Setup (Github)
 
@@ -36,7 +38,6 @@ TODO
 - Github
 - Slack
 - Figma
-- CircleCI
 
 ### Adding Additional Services
 

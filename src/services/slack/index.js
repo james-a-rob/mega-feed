@@ -1,11 +1,13 @@
 const crypto = require("crypto");
 
-const handleCommit = (payload) => {
-  return `new commit by ${payload.pusher.name} to the ${payload.repository.name} repo with message ${payload.commits[0].message}`;
+const handleChannelMessage = (payload) => {
+  return `new message received - ${payload.event.text} <a href="https://app.slack.com/client/${payload.event.team}/${payload.event.channel}">Open</a>`;
 };
 
 const parser = (payload) => {
-  return { test: "blah" };
+  if (payload.event.type === "message") {
+    return handleChannelMessage(payload);
+  }
 };
 
 const authenticate = (req, secureKey) => {
