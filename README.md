@@ -10,13 +10,15 @@ Digital tools meaning things like Slack, Github and Figma.
 
 Events meaning "A designer has just updated the latest IOS app mockups".
 
-## Installation
+## Dependancies
 
 MegaFeed requires Loophole in order for the local client to securely listen from incoming events.
 
 See instructions [here](https://loophole.cloud/download).
 
 Loophole will need adding to an executable path.
+
+## Installation
 
 To install the app just clone this repo and run `npm install`.
 
