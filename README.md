@@ -19,6 +19,7 @@ To install the app just clone this repo and run `npm install`.
 ## Running
 
 Simple run `npm run start`
+
 Navigate to http://localhost:3000
 
 ## Setup
