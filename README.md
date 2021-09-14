@@ -10,7 +10,7 @@ Digital tools meaning things like Slack, Github and Figma.
 
 Events meaning "A designer has just updated the latest IOS app mockups".
 
-## Dependancies
+## Dependencies
 
 MegaFeed requires Loophole in order for the local client to securely listen from incoming events.
 
@@ -38,7 +38,7 @@ When MegaFeed starts it will print a url for each service supported. In order to
 
 ### Example Setup (Github)
 
-TODO
+![MegaFeed setup Github Webhook](https://i.imgur.com/JhFjOIE.gif)
 
 ### Currently Supported Services
 
