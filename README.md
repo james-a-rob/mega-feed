@@ -2,21 +2,21 @@
 
 ![MegaFeed demo](https://gcdn.pbrd.co/images/dHvc2dMBjMXe.gif)
 
-A web app that aggregates all the most important message from across digital tools.
+A web app that aggregates all the most important ***event*** from across ***digital tools***.
 
 Receive messages in real time from a multitude of different services. Supports advanced search and deep linking back into apps.
 
-Digital tools meaning things like Slack, Github and Figma.
+### Digital tools
 
-Events meaning "A designer has just updated the latest IOS app mockups".
+Examples of these are like Slack, Github, Figma etc.
+
+### Events
+Things that happen in digital tools that you want to keep track of e.g. "A designer has just updated the latest IOS app mockups".
 
 ## Dependencies
 
-MegaFeed requires Loophole in order for the local client to securely listen from incoming events.
-
-See instructions [here](https://loophole.cloud/download).
-
-Loophole will need adding to an executable path.
+ - Node.js
+ - Loophole (MegaFeed requires Loophole in order for the local client to securely listen from incoming events. See instructions [here](https://loophole.cloud/download). Loophole will need adding to an executable path)
 
 ## Installation
 
