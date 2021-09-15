@@ -9,6 +9,11 @@ describe("ui", () => {
     const messages = [
       {
         service: "github",
+        time: "13:00pm",
+        content: "new commit",
+      },
+      {
+        service: "github",
         time: "12:00pm",
         content: "new commit",
       },
@@ -16,7 +21,7 @@ describe("ui", () => {
 
     renderMessages(messages);
     const updatedFeedContainer = document.getElementById("feed-container");
-    expect(updatedFeedContainer.children.length).toBe(1);
+    expect(updatedFeedContainer.children.length).toBe(2);
     expect(updatedFeedContainer.innerHTML.includes("new commit")).toBe(true);
   });
 

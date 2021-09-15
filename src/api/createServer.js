@@ -1,10 +1,12 @@
 const express = require("express");
+const path = require("path");
 const services = require("../services");
 const { setup, send } = require("./ws");
 const { getSecureKey } = require("./utils");
 
 const createServer = () => {
   const app = express();
+  app.use("/", express.static(path.join(__dirname, "../client")));
   setup();
   app.use(express.json());
   const secretKey = getSecureKey();

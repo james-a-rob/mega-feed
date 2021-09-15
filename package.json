@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run start:server",
+    "start": "npm run build:client && npm run start:server",
     "build:client": "npx webpack --config webpack.config.js",
     "start:server": "node src/api/app.js",
     "test:client": "jest --config ./jest-config-client.js",
@@ -23,6 +23,7 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "faker": "^5.5.3",
     "fuse.js": "^6.4.6",
     "ws": "^8.2.1"
   }

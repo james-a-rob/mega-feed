@@ -4,7 +4,7 @@ const options = {
   includeScore: true,
   useExtendedSearch: true,
   shouldSort: false,
-  threshold: 0.2,
+  threshold: 0.5,
   keys: ["combined"],
 };
 
