@@ -15,11 +15,8 @@ Things that happen in digital tools that you want to keep track of e.g. "A desig
 
 ## Dependencies
 
-MegaFeed requires Loophole in order for the local client to securely listen from incoming events.
-
-See instructions [here](https://loophole.cloud/download).
-
-Loophole will need adding to an executable path.
+ - Node.js
+ - Loophole (MegaFeed requires Loophole in order for the local client to securely listen from incoming events. See instructions [here](https://loophole.cloud/download). Loophole will need adding to an executable path)
 
 ## Installation
 
