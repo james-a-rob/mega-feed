@@ -2,7 +2,7 @@
 
 ![MegaFeed demo](https://gcdn.pbrd.co/images/dHvc2dMBjMXe.gif)
 
-A web app that aggregates all the most important ***event*** from across ***digital tools***.
+A web app that aggregates all the most important ***events*** from across ***digital tools***.
 
 Receive messages in real time from a multitude of different services. Supports advanced search and deep linking back into apps.
 
